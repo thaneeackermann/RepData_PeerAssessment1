@@ -44,7 +44,7 @@ steps.per.day <- activity %>% group_by(date) %>% summarise(sum.steps = sum(steps
 hist(steps.per.day$sum.steps, main = "Histogram of total numbers of steps taken each day", xlab = "Steps", ylim = c(0, 30), col = "purple")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
 ```r
 mean(steps.per.day$sum.steps, na.rm = TRUE)
@@ -70,7 +70,7 @@ steps.per.interval <- activity %>% group_by(interval) %>% summarise(mean.steps =
 ggplot(steps.per.interval, aes(x = interval, y = mean.steps)) + geom_line(col = "darkblue") + xlab("5-minute interval") + ylab("Average number of daily steps") + ggtitle("Average daily activity pattern per 5-minute interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -112,7 +112,7 @@ steps.per.day <- activity.non.NA %>% group_by(date) %>% summarise(sum.steps = su
 hist(steps.per.day$sum.steps, main = "Histogram of total numbers of steps taken each day", xlab = "Steps", ylim = c(0, 40), col = "pink")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
 
 ```r
 mean(steps.per.day$sum.steps, na.rm = TRUE)
@@ -150,4 +150,4 @@ activity.by.day <- aggregate(steps ~ interval + type_of_day, activity.non.NA, me
 ggplot(activity.by.day, aes(x = interval, y = steps, col = type_of_day)) + geom_line() + xlab("5-minute interval") + ylab("Average number of steps") + ggtitle("Average daily steps: weekdays versus weekend") + facet_wrap(~type_of_day, nrow = 2, ncol = 1) + scale_color_discrete(name = "Type of day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
